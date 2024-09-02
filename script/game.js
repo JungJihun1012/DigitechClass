@@ -204,7 +204,7 @@ function retryGame() {
 
 function goHome() {
     clearInterval(obstacleInterval);
-    window.location.href = 'waitingRoom.html';
+    window.location.href = 'index.html';
 }
 
 

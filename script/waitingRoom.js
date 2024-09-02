@@ -11,7 +11,6 @@ function handlePage(url) {
 if(startButton) {
     startButton.addEventListener("click", (event) => {
         event.preventDefault();
-
         handlePage("game.html");
     });
 };
