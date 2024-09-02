@@ -110,6 +110,14 @@ function spawnObstacle() {
     obstacles.push(new Obstacle(x, y, radius, color, velocity));
 }
 
+function saveScore(score) {
+    const scores = JSON.parse(localStorage.getItem('gameScores')) || [];
+
+    scores.push({ score: score, date: new Date().toISOString().split('T')[0]});
+    
+    localStorage.setItem('gameScores', JSON.stringify(scores));
+};
+
 // 애니메이션 및 게임 로직
 function animate() {
     animationId = requestAnimationFrame(animate);
@@ -136,6 +144,7 @@ function animate() {
             cancelAnimationFrame(animationId);
             clearInterval(scoreInterval);
             gameOver = true;
+            saveScore(score);
             finalScore.innerText = `Your Score: ${score}`;
             gameOverModal.classList.remove('hidden');
         }
